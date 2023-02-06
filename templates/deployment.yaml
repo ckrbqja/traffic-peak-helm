@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
         - name: result-api
-          image: {{ .Values.image }}:{{ .Value.version }}
+          image: {{ .Values.image }}:{{ .Values.version }}
       imagePullSecrets:
         - name: ap-northeast-2-ecr-registry
