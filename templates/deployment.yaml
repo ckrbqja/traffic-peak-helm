@@ -16,7 +16,7 @@ spec:
         name: result-api
     spec:
       containers:
-        - name: aa
-          image: 967699999360.dkr.ecr.ap-northeast-2.amazonaws.com/result:25
+        - name: result-api
+          image: {{ .Values.image }}:{{ .Value.version }}
       imagePullSecrets:
         - name: ap-northeast-2-ecr-registry
