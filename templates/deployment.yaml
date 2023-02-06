@@ -18,5 +18,5 @@ spec:
     spec:
       containers:
         - name: result-api-pod
-          image: {{ .Values.image }}:{{ .Values.port }}
+          image: {{ .Values.image }}:{{ .Values.version }}
 
