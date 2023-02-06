@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: aa
-          image: '967699999360.dkr.ecr.ap-northeast-2.amazonaws.com/result:29'
+          image: '967699999360.dkr.ecr.ap-northeast-2.amazonaws.com/result:25'
       imagePullSecrets:
         - name: ap-northeast-2-ecr-registry
                                                                
