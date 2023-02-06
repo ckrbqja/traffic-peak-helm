@@ -1,30 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}
-  namespace: {{ .Release.Namespace }}
-
+  name: ff
 spec:
-  replicas: 2
+  replicas: 5
   selector:
     matchLabels:
-        name: result-api
+      name: aa
   template:
     metadata:
-      name: result-api
-      namespace: result-api
       labels:
-        name: result-api
+        name: aa
+      name: bb
     spec:
       containers:
         - name: aa
-          image: '967699999360.dkr.ecr.ap-northeast-2.amazonaws.com/result:25'
+          image: 967699999360.dkr.ecr.ap-northeast-2.amazonaws.com/result:26
       imagePullSecrets:
-        - name: regcred
-                                                               
-      #containers:
-      #  - name: result-api-pod
-      #    image: {{ .Values.image }}:{{ .Values.version }}
-      #imagePullSecrets:
-      #  - name: ap-northeast-2-ecr-registry
-
+        - name: ap-northeast-2-ecr-registry
