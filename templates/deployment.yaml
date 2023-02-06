@@ -19,4 +19,6 @@ spec:
       containers:
         - name: result-api-pod
           image: {{ .Values.image }}:{{ .Values.version }}
+      imagePullSecrets:
+        - name: ap-northeast-2-ecr-registry 
 
