@@ -17,8 +17,14 @@ spec:
         name: result-api
     spec:
       containers:
-        - name: result-api-pod
-          image: {{ .Values.image }}:{{ .Values.version }}
+        - name: aa
+          image: '967699999360.dkr.ecr.ap-northeast-2.amazonaws.com/result:28'
       imagePullSecrets:
         - name: ap-northeast-2-ecr-registry
+                                                               
+      #containers:
+      #  - name: result-api-pod
+      #    image: {{ .Values.image }}:{{ .Values.version }}
+      #imagePullSecrets:
+      #  - name: ap-northeast-2-ecr-registry
 
