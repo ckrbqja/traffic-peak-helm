@@ -1,12 +1,16 @@
  node {
+     parameters {
+         string(name : 'BUILD_NM', defaultValue : '0', description : '')
+     }
+
      stage('✨ Clone Repo') {
          checkout scm
      }
 
      stage('🐳 Dk Build') {
-        sh "sed -i 's/image:.*/image: ${env.BUILD_NUMBER}/g' values.yaml"
+        sh "sed -i 's/image:.*/image: ${env.BUILD_NM}/g' values.yaml"
         sh "git add ."
-        sh "git commit -m '[Argo] Docker image tag: ${env.BUILD_NUMBER}' && \""
+        sh "git commit -m '[Argo] Docker image tag: ${env.BUILD_NM}' && \""
         sh "git push -u origin master"
      }
 
