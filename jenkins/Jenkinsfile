@@ -10,7 +10,7 @@
      stage('🐳 Dk Build') {
         sh "sed -i 's/image:.*/image: ${params.BUILD_NM}/g' values.yaml"
         sh "git add ."
-        sh "git commit -m '[Argo] Docker image tag: ${params.BUILD_NM}' && \""
+        sh "git commit -m '[Argo] Docker image tag: ${params.BUILD_NM}'"
         sh "git push -u origin master"
      }
 
