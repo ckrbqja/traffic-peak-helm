@@ -18,5 +18,10 @@ spec:
       containers:
         - name: result-api
           image: {{ .Values.image }}:{{ .Values.version }}
+          livenessProbe:
+            httpGet:
+              port: 8080
+              path: /api/external/data/health-check
       imagePullSecrets:
         - name: ap-northeast-2-ecr-registry
+
