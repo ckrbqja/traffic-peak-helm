@@ -6,11 +6,10 @@
      }
 
      stage('✨ Clone Repo') {
-
         git branch: 'master', credentialsId: 'my-credentials-id', url: 'https://github.com/ckrbqja/traffic-peak-helm.git'
      }
 
-     stage('🐳 Dk Build') {
+     stage('⚙ Build Set') {
 
         withCredentials([gitUsernamePassword(credentialsId: 'my-credentials-id', gitToolName: 'git-tool')]) {
           sh "git reset --hard origin/master"
