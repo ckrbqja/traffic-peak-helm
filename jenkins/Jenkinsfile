@@ -11,7 +11,7 @@
 
      stage('🐳 Dk Build') {
 
-        withCredentials([gitUsernamePassword(credentialsId: 'my-credentials-id', gitToolName: 'git-tool')]) {
+//         withCredentials([gitUsernamePassword(credentialsId: 'my-credentials-id', gitToolName: 'git-tool')]) {
           sh "git reset --hard origin/master"
           sh "sed -i 's@image:.*@image: ${params.AWS_URL}/${params.REPO_NM}:${params.BUILD_NM}@g' values.yaml"
           sh "git config --global user.email 'ckrbqja@gmail.com'"
@@ -19,7 +19,7 @@
           sh "git add values.yaml"
           sh "git commit -m '[Argo] Docker image tag: ${params.BUILD_NM}'"
           sh "git push -f origin master"
-        }
+//         }
      }
 
  }
