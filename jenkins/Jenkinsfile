@@ -1,7 +1,7 @@
  node {
      parameters {
          string(name : 'BUILD_NM', defaultValue : '0', description : '')
-         string(name : 'IMAGE_NM', defaultValue : '0', description : '')
+         string(name : 'AWS_URL', defaultValue : '0', description : '')
          string(name : 'REPO_NM', defaultValue : '0', description : '')
      }
 
