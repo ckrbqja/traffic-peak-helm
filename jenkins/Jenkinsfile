@@ -1,6 +1,7 @@
  node {
      parameters {
          string(name : 'BUILD_NM', defaultValue : '0', description : '')
+         string(name : 'IMAGE_NM', defaultValue : '0', description : '')
      }
 
      stage('✨ Clone Repo') {
@@ -17,21 +18,6 @@
           sh "git commit -m '[Argo] Docker image tag: ${params.BUILD_NM}'"
           sh "git push --force origin master"
         }
-     }
-
-
-     stage('🚀 Push Image') {
-         docker.withRegistry( 'https://' + imageName , credentials) {
-             applicationNm = sh(script:"docker ps | grep netjs | awk '\$0=\$12'", returnStdout: true).trim()
-
-//              TARGET_COLOR = applicationNm == "netjs-blue" ? "green" : "blue"
-//              TARGET_ICON = applicationNm == "netjs-blue" ? "🔵" : "🟢"
-//
-//              echo "> $TARGET_ICON $TARGET_COLOR 빌드"
-//
-//              app.push(TARGET_COLOR)
-             app.push('latest')
-         }
      }
 
  }
