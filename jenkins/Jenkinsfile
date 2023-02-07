@@ -1,5 +1,5 @@
  node {
-     BUILD_NM = ${params.BUILD_NM} ?? '0'
+     BUILD_NM = '${params.BUILD_NM}' ? ${params.BUILD_NM} : '0'
 
      stage('✨ Clone Repo') {
          checkout scm
