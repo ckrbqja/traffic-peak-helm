@@ -1,0 +1,28 @@
+ node {
+     stage('✨ Clone Repo') {
+         checkout scm
+     }
+
+     stage('🐳 Dk Build') {
+        sh "sed -i 's/image:.*/image: ${env.BUILD_NUMBER}/g' values.yaml"
+        sh "git add ."
+        sh "git commit -m '[Argo] Docker image tag: ${env.BUILD_NUMBER}' && \""
+        sh "git push -u origin master"
+     }
+
+
+     stage('🚀 Push Image') {
+         docker.withRegistry( 'https://' + imageName , credentials) {
+             applicationNm = sh(script:"docker ps | grep netjs | awk '\$0=\$12'", returnStdout: true).trim()
+
+//              TARGET_COLOR = applicationNm == "netjs-blue" ? "green" : "blue"
+//              TARGET_ICON = applicationNm == "netjs-blue" ? "🔵" : "🟢"
+//
+//              echo "> $TARGET_ICON $TARGET_COLOR 빌드"
+//
+//              app.push(TARGET_COLOR)
+             app.push('latest')
+         }
+     }
+
+ }
