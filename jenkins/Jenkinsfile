@@ -13,6 +13,7 @@
         sh "git config --global user.name 'ckrbqja'"
         sh "git add ."
         sh "git commit -m '[Argo] Docker image tag: ${params.BUILD_NM}'"
+        sh "git checkout -b master"
         sh "git push origin master"
      }
 
