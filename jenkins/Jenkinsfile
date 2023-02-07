@@ -12,7 +12,7 @@
      stage('🐳 Dk Build') {
 
         withCredentials([gitUsernamePassword(credentialsId: 'my-credentials-id', gitToolName: 'git-tool')]) {
-          sh "sed -i 's/image:.*/image: `${params.AWS_URL}\/${params.REPO_NM}:${params.BUILD_NM}`/g' values.yaml"
+          sh "sed -i 's/image:.*/image: `${params.AWS_URL}\\/${params.REPO_NM}:${params.BUILD_NM}`/g' values.yaml"
           sh "git config --global user.email 'ckrbqja@gmail.com'"
           sh "git config --global user.name 'ckrbqja'"
           sh "git add ."
