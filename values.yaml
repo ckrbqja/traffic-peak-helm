@@ -1,3 +1,5 @@
-image: 967699999360.dkr.ecr.ap-northeast-2.amazonaws.com/result
-version: 28
+# image: 967699999360.dkr.ecr.ap-northeast-2.amazonaws.com/result
+image: nginx
+#version: 28
+version: latest
 replicas: 3
