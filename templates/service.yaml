@@ -8,6 +8,6 @@ spec:
     name: result-api
   type: NodePort
   ports:
-    - port: 1380
-      targetPort: 1380
+    - port: 80
+      targetPort: 80
       protocol: TCP
